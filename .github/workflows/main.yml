@@ -13,13 +13,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build
-      env:
-        DOCKER_HUB: ${{ secrets.DOCKER_HUB }}
-        DOCKER_HUB_KEY: ${{ secrets.DOCKER_HUB_KEY }}
       run : 
         ls -l
         echo 'Docker login'
-        docker login -u $DOCKER_HUB -p $DOCKER_HUB_KEY
+        docker login -u diksha0902
         echo 'Running build...'
         docker build . -t diksha0902/dockerdemo-1:latest
         echo 'Pushing image...'
